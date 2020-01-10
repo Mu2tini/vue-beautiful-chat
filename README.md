@@ -60,7 +60,8 @@ Vue.use(Chat)
       :alwaysScrollToBottom="alwaysScrollToBottom"
       :messageStyling="messageStyling"
       @onType="handleOnType"
-      @edit="editMessage" />
+      @edit="editMessage" 
+      :authorId="'me'"/>
   </div>
 </template>
 ```
