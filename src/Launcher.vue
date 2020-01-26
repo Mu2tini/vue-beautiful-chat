@@ -303,7 +303,7 @@ export default {
 
 @media (max-width: 450px) {
   .sc-wrapper.opened {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: auto;
