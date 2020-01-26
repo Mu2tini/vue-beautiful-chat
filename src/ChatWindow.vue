@@ -210,13 +210,16 @@ export default {
   .sc-chat-window {
     width: 100%;
     height: 100%;
-    max-height: 100%;
+    height: calc(100% - 70px);
     right: 0px;
     bottom: 0px;
     border-radius: 0px;
   }
   .sc-chat-window {
     transition: 0.1s ease-in-out;
+  }
+  .sc-chat-window.opened {
+    animation: none;
   }
   .sc-chat-window.closed {
     bottom: 0px;
