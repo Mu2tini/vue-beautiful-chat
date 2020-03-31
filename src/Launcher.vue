@@ -1,6 +1,6 @@
 <template>
-  <div class="sc-wrapper" :class="{opened: isOpen}">
-    <div class="sc-launcher" :class="{opened: isOpen}" @click.prevent="isOpen ? close() : openAndFocus()" :style="{backgroundColor: colors.launcher.bg}">
+  <div class="sc-wrapper" :class="{opened: isOpen}>
+    <div v-if="showLauncher" class="sc-launcher" :class="{opened: isOpen}" @click.prevent="isOpen ? close() : openAndFocus()" :style="{backgroundColor: colors.launcher.bg}">
       <div v-if="newMessagesCount > 0 && !isOpen" class="sc-new-messsages-count">
         {{newMessagesCount}}
       </div>
@@ -8,6 +8,8 @@
       <img v-else class="sc-open-icon" :src="icons.open.img"  :alt="icons.open.name" />
     </div>
     <ChatWindow
+      :showLauncher="showLauncher"
+      :showCloseButton="showCloseButton"
       :messageList="messageList"
       :onUserInputSubmit="onMessageWasSent"
       :participants="participants"
@@ -96,6 +98,14 @@ export default {
       type: Boolean,
       default: false
     },
+    showLauncher: {
+      type: Boolean,
+      default: true
+    },
+    showCloseButton: {
+      type: Boolean,
+      default: true
+    },
     participants: {
       type: Array,
       required: true
@@ -131,22 +141,22 @@ export default {
     colors: {
       type: Object,
       required: false,
-      validator: c => 
+      validator: c =>
         'header' in c
-        && 'bg' in c.header 
+        && 'bg' in c.header
         && 'text' in c.header
         && 'launcher' in c
         && 'bg' in c.launcher
         && 'messageList' in c
         && 'bg' in c.messageList
         && 'sentMessage' in c
-        && 'bg' in c.sentMessage 
+        && 'bg' in c.sentMessage
         && 'text' in c.sentMessage
         && 'receivedMessage' in c
-        && 'bg' in c.receivedMessage 
+        && 'bg' in c.receivedMessage
         && 'text' in c.receivedMessage
         && 'userInput' in c
-        && 'bg' in c.userInput 
+        && 'bg' in c.userInput
         && 'text' in c.userInput,
       default: function () {
         return {
@@ -238,7 +248,7 @@ export default {
   position: relative;
   display: block;
   width: 60px;
-  height: 60px;  
+  height: 60px;
   border-radius: 50%;
   transition: box-shadow 0.2s ease-in-out;
 }

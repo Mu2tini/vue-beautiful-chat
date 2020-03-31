@@ -1,6 +1,6 @@
 {
   "name": "vue-beautiful-chat",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "A simple and beautiful Vue chat component backend agnostic.",
   "main": "./src/index.js",
   "repository": "https://github.com/mattmezza/vue-beautiful-chat.git",
@@ -29,6 +29,7 @@
     "img-loader": "^3.0.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^6.0.7",
+	"serialize-javascript": "^2.1.1",
     "standard": "^11.0.0",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^1.1.2",

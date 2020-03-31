@@ -1,15 +1,13 @@
 <template>
   <div class="sc-header" :style="{background: colors.header.bg, color: colors.header.text}">
-    <!-- 
     <slot>
       <img class="sc-header--img" :src="imageUrl" alt="" v-if="imageUrl" />
       <div v-if="!disableUserListToggle" class="sc-header--title enabled" @click="toggleUserList"> {{title}} </div>
       <div v-else class="sc-header--title"> {{title}} </div>
     </slot>
-    <div class="sc-header--close-button" @click="onClose">
-      <img :src="icons.close.img" :alt="icons.close.name" />
-    </div>
-    -->
+      <div v-if="showCloseButton" class="sc-header--close-button" @click="onClose">
+        <img :src="icons.close.img" :alt="icons.close.name" />
+      </div>
   </div>
 </template>
 <script>
@@ -47,6 +45,10 @@ export default {
     disableUserListToggle: {
       type: Boolean,
       default: false
+    },
+    showCloseButton: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -64,10 +66,10 @@ export default {
 </script>
 <style scoped>
 .sc-header {
-  min-height: 10px;
+  min-height: 75px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
-  padding: 0px;
+  padding: 10px;
   box-shadow: 0 1px 4px rgba(0,0,0,.2);
   position: relative;
   box-sizing: border-box;
@@ -98,9 +100,9 @@ export default {
 }
 
 .sc-header--close-button {
-  width: 20px;
+  width: 40px;
   align-self: center;
-  height: 20px;
+  height: 40px;
   margin-right: 10px;
   box-sizing: border-box;
   cursor: pointer;
