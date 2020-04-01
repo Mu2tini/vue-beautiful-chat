@@ -1,5 +1,5 @@
 <template>
-  <div class="sc-wrapper" :class="{opened: isOpen}>
+  <div class="sc-wrapper" :class="{opened: isOpen}">
     <div v-if="showLauncher" class="sc-launcher" :class="{opened: isOpen}" @click.prevent="isOpen ? close() : openAndFocus()" :style="{backgroundColor: colors.launcher.bg}">
       <div v-if="newMessagesCount > 0 && !isOpen" class="sc-new-messsages-count">
         {{newMessagesCount}}
